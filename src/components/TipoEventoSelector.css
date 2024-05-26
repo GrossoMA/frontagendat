@@ -1,0 +1,18 @@
+/* EventorSelector.css */
+.tipoEventoSelector {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: start; /* Ajustar si es necesario */
+    max-width: 40%; /* Esto permite que el contenedor de botones ocupe el 80% del ancho del contenedor padre */    
+  }
+
+  .tipo-evento-container {
+    display: flex;
+    align-items: center; /* Asegura que los elementos internos estén alineados verticalmente */
+    border-radius: 8px; /* Ajusta según necesites */
+    background-color: #f0f0f0; /* Gris neutro. Ajusta el color según necesites */
+    padding: 0.5rem; /* Añade un poco de padding interior */
+    border: 1px solid #ccc; /* Añade un borde sutil */
+    width: 100%;
+}

@@ -1,0 +1,66 @@
+/* FormStyles.css */
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.form {
+  max-width: 800px; /* Ajusta este valor según lo que consideres adecuado para tu diseño */
+  width: 100%;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background: #0e1f3b9a;
+}
+
+.form-field {
+  margin-bottom: 20px;
+}
+.form-group {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+  background-color: rgb(191, 255, 233);
+  border: 1px solid #333333;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.form-label {
+  align-self: flex-start;
+  margin-bottom: 0.5rem; /* Ajusta según necesites */
+}
+.input {
+  width: 100%;
+  margin-right: 0.5rem;
+  padding: 0.9rem;
+  border: 1px solid #6d6c6c;
+  border-radius: 4px;
+  background-color: rgb(149, 208, 248);
+}
+.error-message {
+  color: white;
+  background-color: red;
+  padding: 5px;
+  border-radius: 3px;
+  margin-top: 5px;
+}
+.botonGuardarEvento {
+  background-color: #4caf50; /* Verde */
+  color: white;
+  cursor: pointer;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: center;
+  margin: 0.25rem;
+  min-width: 15%;
+  /* display: inline-block; */
+  font-size: 16px;
+  float: right;
+}

@@ -1,0 +1,27 @@
+.class-estado {
+    /* Estilos base para el estado */
+    padding: 4px;
+    border-radius: 4px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .icono-pendiente {
+    background-color: yellow;
+    color: black;
+  }
+  
+  .icono-error {
+    background-color: red;
+    color: white;
+  }
+  
+  .icono-exito {
+    background-color: green;
+    color: white;
+  }
+  
+  .icono-desconocido {
+    background-color: gray;
+    color: white;
+  }

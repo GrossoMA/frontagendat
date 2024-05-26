@@ -1,0 +1,15 @@
+/* styles.css */
+.textAreaSelector{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start; /* Ajustar si es necesario */
+    max-width: 100%; /* Esto permite que el contenedor de botones ocupe el 80% del ancho del contenedor padre */    
+}
+.text-area {
+    width: 100%; /* Esto debería hacer que ocupe todo el ancho del contenedor padre */
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: horizontal; /* Permite al usuario cambiar el tamaño verticalmente */
+  }
+  

@@ -1,0 +1,14 @@
+.botonGuardarEvento {
+  background-color: #4caf50; /* Verde */
+  color: white;
+  cursor: pointer;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: center;
+  margin: 0.25rem;
+  min-width: 15%;
+  /* display: inline-block; */
+  font-size: 16px;
+  float: right;
+}

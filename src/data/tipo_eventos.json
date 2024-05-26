@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "nombre": "Aniversario Localidad"
+    },
+    {
+        "id": 2,
+        "nombre": "Fiesta Regional"
+    },
+    {
+        "id": 3,
+        "nombre": "Evento Cultural"
+    },
+    {
+        "id": 4,
+        "nombre": "Evento Deportivo"
+    },
+    {
+        "id": 5,
+        "nombre": "Feria/ Exposición"
+    },
+    {
+        "id": 6,
+        "nombre": "Feria"
+    },
+    {
+        "id": 7,
+        "nombre": "Exposición"
+    },
+    {
+        "id": 8,
+        "nombre": "Evento Religioso"
+    },
+    {
+        "id": 9,
+        "nombre": "Evento Gastronómico"
+    }
+]

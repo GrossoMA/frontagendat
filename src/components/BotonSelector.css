@@ -1,0 +1,44 @@
+/* BotonMes.css */
+/* .botonSelector {
+    cursor: pointer;
+    padding: 0.9rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+    margin: 0.25rem;
+    min-width: 30%; /* Ajustar según sea necesario 
+    background-color: rgb(42, 150, 223);
+  } */
+.botonSelector {
+  cursor: pointer;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: center;
+  margin: 0.25rem;
+  min-width: 15%;
+  /* No necesitas especificar un width fijo si quieres que se ajusten al contenido */
+  background-color: #f0f0f0; /* Color de fondo para botones no seleccionados */
+}
+
+.botonSelectorSeleccionado {
+  border: 2px solid #000000;
+  background-color: rgb(42, 150, 223);
+  font-weight: bold;
+  color: white;
+}
+
+.botonSelectorNoSeleccionado {
+  background-color: white;
+}
+.icono-izquierda {
+  margin-right: 8px;
+}
+.icono-derecha {
+  margin-left: 8px;
+}
+.icono-arriba,
+.icono-abajo {
+  display: block;
+  /* Otros estilos según sea necesario */
+}

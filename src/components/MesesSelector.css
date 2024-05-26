@@ -1,0 +1,7 @@
+/* MesesSelector.css */
+.mesesSelector {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; /* Esto asegura que los botones se distribuyan de manera uniforme */
+  gap: 10px; /* Esto añade un espacio entre los botones */
+}

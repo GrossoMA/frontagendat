@@ -1,0 +1,30 @@
+/* HorarioInput.css */
+.horario-select {
+    cursor: pointer;
+    padding: 0.5rem; /* Ajusta el padding para que se acomode mejor a un elemento select */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+    margin: 0.25rem;
+    width: 50%; /* Ajustado para que dos elementos select quepan en una línea */
+    background-color: rgb(208, 236, 255); /* Color suave para el fondo */
+    color: #000; /* Color del texto */
+}
+
+.horario-select:focus {
+    border-color: rgb(42, 150, 223); /* Resalta el borde cuando el select tiene foco */
+    outline: none; /* Elimina el outline predeterminado para mantener el diseño limpio */
+}
+.horario-container {
+    display: flex;
+    align-items: center; /* Asegura que los elementos internos estén alineados verticalmente */
+    border-radius: 8px; /* Ajusta según necesites */
+    background-color: #f0f0f0; /* Gris neutro. Ajusta el color según necesites */
+    padding: 0.5rem; /* Añade un poco de padding interior */
+    border: 1px solid #ccc; /* Añade un borde sutil */
+    width: 100%;
+}
+.class-dos-puntos{
+    margin: 10px 5px;
+    font-weight: bold;
+}
