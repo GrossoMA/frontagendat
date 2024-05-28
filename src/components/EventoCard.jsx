@@ -6,7 +6,7 @@ import {
   IconEventos,
   IconArrow,
 } from "../components/Icons";
-const EventoCard = ({ evento, onEditClick }) => {
+const EventoCard = ({ evento }) => {
   // console.log(evento);
 
   const {
@@ -90,11 +90,7 @@ const EventoCard = ({ evento, onEditClick }) => {
       <p>
         <strong>Etiquetas del evento:</strong> {pClaves.join(", ")}
       </p>
-      <button
-        className="botonEvento botonEditar"
-        type="submit"
-        onClick={() => onEditClick(evento)}
-      >
+      <button className="botonEvento botonEditar" type="submit">
         <label>editar</label>
         <IconArrow />
         {/* {eventoExistente ? "Actualizar Evento" : "Agregar Evento"} */}

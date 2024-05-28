@@ -88,3 +88,50 @@ export const useFetch = ({ endpoint, requestOptions, body = {} }) => {
 
 //   return { data, isPending, error };
 // };
+
+// /* eslint-disable react-hooks/exhaustive-deps */
+// import { useEffect, useState } from "react";
+// import { API_BASE_URL } from "../routes/apiUrl";
+// import { useNavigate } from "react-router-dom";
+// import toast from "react-hot-toast";
+
+// export const useFetch = ({ endpoint, requestOptions }) => {
+//   const [data, setData] = useState(null);
+//   const [isPending, setIsPending] = useState(true);
+//   const [error, setError] = useState(null);
+//   // ----
+//   const navigate = useNavigate();
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       try {
+//         const response = await fetch(API_BASE_URL + endpoint, requestOptions);
+//         console.log(API_BASE_URL + endpoint, requestOptions, response);
+
+//         if (!response.ok) {
+//           console.log("error response useFetch");
+//           throw new Error(response.statusText);
+//         }
+
+//         const result = await response.json();
+//         setData(result);
+//       } catch (error) {
+//         setError(err.message);
+
+//         if (
+//           error.message === "UNAUTHORIZED" ||
+//           err.message === "Unauthorized"
+//         ) {
+//           toast.success("sesion expirada");
+//           localStorage.clear();
+//           setTimeout(() => {
+//             navigate("/");
+//           }, 1000);
+//         }
+//       } finally {
+//         setIsPending(false);
+//       }
+//     };
+//     fetchData();
+//   }, [endpoint, requestOptions, navigate]);
+//   return { data, isPending, error };
+// };

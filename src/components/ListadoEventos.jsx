@@ -1,7 +1,7 @@
 import React from "react";
 import EventoCard from "./EventoCard";
 
-const ListadoEventos = ({ data, onEditClick }) => {
+const ListadoEventos = ({ data }) => {
   return (
     <>
       <h2 className="text-blue-500 text-xl font-bold text-center">
@@ -21,7 +21,7 @@ const ListadoEventos = ({ data, onEditClick }) => {
             <EventoCard
               key={d.id_evento}
               evento={d}
-              onEditClick={onEditClick}
+              // onEditClick={onEditClick}
             />
           ))
         )}
