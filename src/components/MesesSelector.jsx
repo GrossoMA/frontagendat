@@ -38,7 +38,8 @@ function MesesSelector({
   }, [fechaInicio]);
 
   // Función para manejar el clic en un mes
-  const handleMesClick = (mes) => {
+  const handleMesClick = (e, mes) => {
+    e.preventDefault();
     if (!fechaInicio) {
       onChange(name, mes); // Asegúrate de pasar `name` y `mes`
     }
@@ -57,7 +58,8 @@ function MesesSelector({
             key={mes}
             texto={mes}
             estaSeleccionado={mesSeleccionado === mes}
-            onClick={() => handleMesClick(mes)}
+            onClick={(e) => handleMesClick(e, mes)}
+            disabled={!!fechaInicio} // Deshabilita el botón si fechaInicio es válida
           />
         ))}
       </div>
