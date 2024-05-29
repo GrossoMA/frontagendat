@@ -1,151 +1,76 @@
 /* eslint-disable react/jsx-indent */
+import Modal from "react-modal";
 import { useState } from "react";
 import { Loader } from "../components/Loader";
 import { Menu } from "../components/Menu";
+import useObtainEventos from "../hooks/useObtainEventos";
+import ControlEventos from "../components/ControlEventos";
 import { useFetch } from "../hooks/useFetch";
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-  ArcElement,
-} from "chart.js";
-import { Bar, Pie } from "react-chartjs-2";
 import EventoCard from "../components/EventoCard";
+import { Eventos } from "./Eventos";
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-  ArcElement
-);
-
-// const useObtainBills = () => {
-//   const endpointAllBills = `user/${localStorage.id}/facturas`
+// const useObtainEventos = () => {
+//   const endpointAllEventos = `user/${localStorage.id}/eventos`;
 
 //   const requestOptions = {
-//     method: 'GET',
+//     method: "GET",
 //     headers: {
-//       'Content-Type': 'application/json',
-//       'x-access-token': localStorage.token,
-//       'user-id': localStorage.id
-//     }
-//   }
+//       "Content-Type": "application/json",
+//       "x-access-token": localStorage.token,
+//       "user-id": localStorage.id,
+//     },
+//   };
 
-//   const { data, isPending, error } = useFetch({ endpoint: endpointAllBills, requestOptions })
+//   const { data, isPending, error } = useFetch({
+//     endpoint: endpointAllEventos,
+//     requestOptions,
+//   });
 
-//   return { data, isPending, error }
-// }
-
-// const useObtainOffer = () => {
-//   const endpointAllOffer = `user/${localStorage.id}/oferta`
-
-//   const requestOptions = {
-//     method: 'GET',
-//     headers: {
-//       'Content-Type': 'application/json',
-//       'x-access-token': localStorage.token,
-//       'user-id': localStorage.id
-//     }
-//   }
-
-//   const { data, isPending, error } = useFetch({ endpoint: endpointAllOffer, requestOptions })
-
-//   return { data, isPending, error }
-// }
-
-const useObtainEventos = () => {
-  const endpointAllEventos = `user/${localStorage.id}/eventos`;
-
-  const requestOptions = {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      "x-access-token": localStorage.token,
-      "user-id": localStorage.id,
-    },
-  };
-
-  const { data, isPending, error } = useFetch({
-    endpoint: endpointAllEventos,
-    requestOptions,
-  });
-
-  return { data, isPending, error };
-};
+//   return { data, isPending, error };
+// };
 
 export const Dashboard = () => {
-  // const { data: dataBill, isPending: isPendingBill } = useObtainBills()
-  // const { data: dataOffer, isPending: isPendingOffer } = useObtainOffer()
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [selectedEvent, setSelectedEvent] = useState(null);
+
+  const openModal = (evento) => {
+    // console.log(evento);
+    setSelectedEvent(evento);
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setSelectedEvent(null);
+    setModalIsOpen(false);
+  };
+
   const { data: dataEventos, isPending: isPendingEventos } = useObtainEventos();
-  //endpointAl
 
   return (
     <>
       <Menu>
         <h2 className="font-bold text-2xl mb-4">Dashboard</h2>
         <div className="flex flex-col gap-10 justify-center">
-          {/* <div className='max-h-96'>
-            {isPendingBill ? <Loader /> : <ChartDailyIncome data={dataBill} />}
-          </div>
-          <div className='max-h-96'>
-            {isPendingBill ? <Loader /> : <ChartTypeIncome dataBill={dataBill} />}
-          </div>
-          <div>
-            <hr />
-            {isPendingBill ? <Loader /> : <ChartTopProductsServices data={dataBill} />}
-          </div>
-          <div>
-            <hr />
-            {isPendingOffer ? <Loader /> : <ControlStock data={dataOffer} />}
-          </div> */}
           <div>
             <hr />
             {isPendingEventos ? (
               <Loader />
             ) : (
-              <ControlEventos data={dataEventos} />
+              <>
+                <ControlEventos data={dataEventos} openModal={openModal} />
+              </>
             )}
           </div>
         </div>
       </Menu>
-    </>
-  );
-};
 
-const ControlEventos = ({ data }) => {
-  return (
-    <>
-      <h2 className="text-blue-500 text-xl font-bold text-center">
-        Eventos Cargados
-      </h2>
-      <label
-        htmlFor="min-stock"
-        className="font-bold text-blue-500 flex justify-center items-center gap-4 mb-2"
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        contentLabel="Evento Modal"
       >
-        Proximo Evento:
-      </label>
-      <div className="border border-gray-300 rounded-md overflow-hidden">
-        {data?.message ? (
-          <p className="text-red-500 font-bold text-center p-2">
-            No hay eventos
-          </p>
-        ) : (
-          <div>
-            {data?.map((d) => (
-              <div key={d.id_evento} className="border-b border-gray-300">
-                <EventoCard evento={d} />
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
+        <EventoCard evento={selectedEvent} />
+      </Modal>
     </>
   );
 };

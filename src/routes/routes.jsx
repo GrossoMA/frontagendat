@@ -4,6 +4,7 @@ import { Dashboard } from "../pages/Dashboard";
 
 import { Profile } from "../pages/Profile";
 import { Eventos } from "../pages/Eventos";
+import { EventosEdit } from "../pages/EventosEdit";
 // import { EventosAdmin } from "../pages/EventosAdmin";
 import { Landing } from "../pages/Landing";
 import { ErrorPage } from "../pages/404";
@@ -35,6 +36,10 @@ export const routes = createBrowserRouter([
   {
     path: "/eventos",
     element: <Eventos />,
+  },
+  {
+    path: "/eventos/:evento_id",
+    element: <EventosEdit />,
   },
   {
     path: "*",

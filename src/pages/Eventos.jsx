@@ -18,6 +18,7 @@ import ImageUpload from "../components/ImageUpload";
 import { API_BASE_URL, ENDPOINTS } from "../routes/apiUrl";
 
 export const Eventos = ({ eventoExistente }) => {
+  // console.log("cargando Eventos", eventoExistente);
   const initialFormState = {
     fechaInicio: "",
     mes: "",
@@ -39,6 +40,7 @@ export const Eventos = ({ eventoExistente }) => {
   const [dataForm, setDataForm] = useState(initialFormState);
 
   useEffect(() => {
+    // console.log("consultando useEffect", eventoExistente);
     if (eventoExistente) {
       setDataForm({
         fechaInicio: eventoExistente.fecha_inicio,
@@ -119,11 +121,8 @@ export const Eventos = ({ eventoExistente }) => {
   };
 
   const validateForm = () => {
-    // console.log("validando dentro antes de mostrando errors", errors);
-
     let formErrors = {};
-    // console.log("validando", errors, formErrors);
-    // console.log("!dataForm.nombreEvento ", !dataForm.nombreEvento);
+
     if (!dataForm.nombreEvento) {
       formErrors.nombreEvento = "El nombre del evento es obligatorio";
     }
@@ -141,10 +140,6 @@ export const Eventos = ({ eventoExistente }) => {
     }
 
     setErrors(formErrors);
-    // console.log(
-    //   "validando dentro antes de mostrando errors despues de validar",
-    //   errors
-    // );
 
     return Object.keys(formErrors).length === 0;
   };
@@ -221,8 +216,7 @@ export const Eventos = ({ eventoExistente }) => {
   const submitEvento = async (payload) => {
     try {
       let user_id = localStorage.id;
-      // API_BASE_URL + ENDPOINTS.signIn
-      // `https://m4legrosso.pythonanywhere.com/user/${user_id}/eventos`,
+
       const requestOptions = {
         method: eventoExistente ? "PUT" : "POST",
         headers: {
@@ -306,26 +300,15 @@ export const Eventos = ({ eventoExistente }) => {
     localidades: Array.from(localidadesSet),
   }));
 
-  // const [municipioSeleccionado, setMunicipioSeleccionado] = useState("");
   const [localidadesMunicipio, setLocalidades] = useState([]);
-  // const [localidadSeleccionada, setLocalidadSeleccionada] = useState("");
+
   const [tipoEventoSeleccionado, setTipoEventoSeleccionado] = useState("");
 
   const handleTipoEventoChange = (e) => {
     const tipoEvento = e.target.value;
     setTipoEventoSeleccionado(tipoEvento);
     dataForm.tipoEvento = tipoEvento;
-    // console.log(
-    //   "estoy aca tipo evento handle",
-    //   tipoEvento,
-    //   dataForm.tipoEvento
-    // );
   };
-
-  // const onSubmit = (data) => {
-  //   console.log("onSubmit:", data);
-  //   // Aquí podrías enviar los datos a una base de datos o backend
-  // };
 
   const LogOut = () => {
     handleLogin();
@@ -334,8 +317,9 @@ export const Eventos = ({ eventoExistente }) => {
   return (
     <Menu>
       <header className="flex justify-between items-center">
-        <h2 className="font-bold text-2xl">Eventos</h2>
-        <IconAdd className="h-10 w-10 mr-2 hover:text-blue-500 cursor-pointer hover:scale-105 transition" />
+        <h2 className="font-bold text-2xl">
+          Eventos {eventoExistente ? "Actualizando Evento" : "Agregando Evento"}
+        </h2>
       </header>
       <div className="form-container">
         <form
@@ -386,7 +370,7 @@ export const Eventos = ({ eventoExistente }) => {
             name="fechaInicio"
             value={dataForm.fechaInicio}
             placeholder="Fecha Inicio"
-            minDate={"2024-03-01"}
+            minDate={"2024-01-01"}
             maxDate={"2025-12-31"}
             onChange={handleFormInput}
           />
@@ -407,7 +391,6 @@ export const Eventos = ({ eventoExistente }) => {
             name="mes"
             fechaInicio={dataForm.fechaInicio}
             mesSeleccionado={dataForm.mes}
-            // value={dataForm.mes}
             onChange={handleMesSelector}
           />
           <HorarioInput
@@ -418,7 +401,7 @@ export const Eventos = ({ eventoExistente }) => {
             esrequerido={dataForm.eventoHorarioRequerido}
             onChange={handleFormInput}
           />
-          {/* {errores.horario && (<span className="error">{errores.horario}</span>)} */}
+
           <TipoEventoSelector
             tiposEventosArray={tiposEventosArray}
             tipoEventoSeleccionado={tipoEventoSeleccionado}
@@ -441,7 +424,6 @@ export const Eventos = ({ eventoExistente }) => {
             onDeselectKeyword={handleDeselectKeyword}
             onChange={handleFormInput}
           />
-          {/* <ImageUpload onImageUpload={handleImageUpload} /> */}
           <ImageUpload
             onImageUpload={handleImageUpload}
             fieldName="image1"
