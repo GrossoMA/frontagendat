@@ -236,7 +236,8 @@ export const Eventos = ({ eventoExistente }) => {
       // : `${API_BASE_URL}/${ENDPOINTS.eventos(user_id)}`;
 
       const response = await fetch(endpoint, requestOptions);
-
+      console.log(endpoint);
+      console.log("luego de insert", response);
       if (response.ok) {
         const result = await response.json();
         resetInfoForm();
@@ -251,6 +252,7 @@ export const Eventos = ({ eventoExistente }) => {
 
         setTimeout(() => {
           window.location.reload();
+          console.log(window.location.API_BASE_URL);
         }, 1300);
       } else {
         const errorData = await response.json();
@@ -272,7 +274,7 @@ export const Eventos = ({ eventoExistente }) => {
     e.preventDefault();
     console.log(errors, "errores antes de validar");
     let formValido = validateForm();
-    // console.log(errors, "errores despues de validar");
+    console.log(errors, "errores despues de validar");
 
     if (formValido) {
       // Aquí puedes manejar el envío del formulario
