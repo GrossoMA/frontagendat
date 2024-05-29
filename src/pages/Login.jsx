@@ -57,7 +57,8 @@ export const Login = () => {
         </Link>
         <div className="flex flex-col justify-center items-center p-[3vw] bg-[#3B82F6] border rounded-xl border-opacity-[25] outline-white">
           <img
-            src="./logoagenda.svg"
+            type="image/svg+xml"
+            href="/logoagenda.svg"
             alt="logo Agenda Turistica"
             className="max-h-14 mb-[2vh]"
           />
