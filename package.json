@@ -1,7 +1,7 @@
 {
   "name": "client",
   "private": true,
-  "proxy": "https://m4legrosso.pythonanywhere.com/",
+  "proxy": "https://grosso4le.pythonanywhere.com/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
