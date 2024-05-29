@@ -55,7 +55,7 @@ const EventoCard = ({ evento, openModal }) => {
           src={
             img1
               ? `${API_BASE_URL}/imgeventos/${img1}`
-              : "/public/todalainfo.png"
+              : `${API_BASE_URL}/imgeventos/todalainfo.png`
           }
           alt={nombre_evento}
           className="w-48 h-24 object-cover rounded-lg"
