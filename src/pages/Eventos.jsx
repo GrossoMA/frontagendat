@@ -218,16 +218,22 @@ export const Eventos = ({ eventoExistente }) => {
       let user_id = localStorage.id;
 
       const requestOptions = {
-        method: eventoExistente ? "PUT" : "POST",
+        method: "POST", //eventoExistente ? "PUT" :
         headers: {
           "x-access-token": localStorage.token, // Reemplaza 'tu_token' por tu token real
           "user-id": user_id,
         },
         body: payload,
       };
-      const endpoint = eventoExistente
-        ? `${API_BASE_URL}/${ENDPOINTS.eventos(user_id)}/${eventoExistente.id}`
-        : `${API_BASE_URL}/${ENDPOINTS.eventos(user_id)}`;
+      const endpoint =
+        "https://grosso4le.pythonanywhere.com" +
+        "/" +
+        "user" +
+        "/" +
+        user_id +
+        "/eventos";
+      // const endpoint = eventoExistente? `${API_BASE_URL}/${ENDPOINTS.eventos(user_id)}/${eventoExistente.id}`
+      // : `${API_BASE_URL}/${ENDPOINTS.eventos(user_id)}`;
 
       const response = await fetch(endpoint, requestOptions);
 
