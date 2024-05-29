@@ -399,7 +399,7 @@ const DetailProduct = ({ detailProduct, handleDetailProduct, productInfo }) => {
       },
       body: JSON.stringify(data),
     };
-    fetch(API_BASE_URL + endpointDeleteEvento, requestOptions)
+    fetch(API_BASE_URL + "/" + endpointDeleteEvento, requestOptions)
       .then((res) => {
         if (!res.ok) throw new Error("Error HTTP: " + res.status);
         return res.json;
@@ -426,7 +426,7 @@ const DetailProduct = ({ detailProduct, handleDetailProduct, productInfo }) => {
         "user-id": localStorage.id,
       },
     };
-    fetch(API_BASE_URL + endpointDeleteEvento, requestOptions)
+    fetch(API_BASE_URL + "/" + endpointDeleteEvento, requestOptions)
       .then((res) => {
         if (!res.ok) throw new Error("Error HTTP: " + res.status);
         return res.json;
@@ -693,7 +693,7 @@ const InsertEvento = ({ insertEvento, handleInsertEvento }) => {
       },
       body: JSON.stringify(data),
     };
-    fetch(API_BASE_URL + endpointInsertEvento, requestOptions)
+    fetch(API_BASE_URL + "/" + endpointInsertEvento, requestOptions)
       .then((res) => {
         if (!res.ok) throw new Error("Error HTTP: " + res.status);
         return res.json;

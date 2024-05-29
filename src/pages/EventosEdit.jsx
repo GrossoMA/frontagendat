@@ -56,7 +56,7 @@ export const EventosEdit = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(API_BASE_URL + endpoint, {
+        const response = await fetch(API_BASE_URL + "/" + endpoint, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -229,7 +229,7 @@ export const EventosEdit = () => {
     if (dataForm.image3) payload.append("image3", dataForm.image3);
 
     try {
-      const response = await fetch(API_BASE_URL + endpoint, {
+      const response = await fetch(+"/" + endpoint, {
         method: "PUT",
         headers: {
           "x-access-token": token,

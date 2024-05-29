@@ -17,9 +17,9 @@ export const useFetch = ({ endpoint, requestOptions, body = {} }) => {
         let response;
         // console.log(API_BASE_URL + endpoint, requestOptions);
         if (body) {
-          response = await fetch(API_BASE_URL + endpoint, requestOptions); //, body);
+          response = await fetch(API_BASE_URL + "/" + endpoint, requestOptions); //, body);
         } else {
-          response = await fetch(API_BASE_URL + endpoint, requestOptions);
+          response = await fetch(API_BASE_URL + "/" + endpoint, requestOptions);
         }
         // console.log("->", response);
         if (!response.ok) throw new Error(response.statusText);

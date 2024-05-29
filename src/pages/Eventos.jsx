@@ -226,8 +226,8 @@ export const Eventos = ({ eventoExistente }) => {
         body: payload,
       };
       const endpoint = eventoExistente
-        ? `${API_BASE_URL}${ENDPOINTS.eventos(user_id)}/${eventoExistente.id}`
-        : `${API_BASE_URL}${ENDPOINTS.eventos(user_id)}`;
+        ? `${API_BASE_URL}/${ENDPOINTS.eventos(user_id)}/${eventoExistente.id}`
+        : `${API_BASE_URL}/${ENDPOINTS.eventos(user_id)}`;
 
       const response = await fetch(endpoint, requestOptions);
 
